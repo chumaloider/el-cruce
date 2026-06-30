@@ -241,19 +241,19 @@ const START = new Date('2026-06-08');
 const DAYS = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
 
 // Training paces from 1-Mile TT (6:57 = 4:19/km)
-// Rep/5K pace: 4:25–4:32/km | Tempo: 4:50–5:00/km | Easy Z2: 6:50–7:30/km @ 140–150 bpm
+// HR-ANCHORED (post-failed-TT, Jun 2026). Tempo: HR 157–170 / ~5:15–5:40/km. Reps: HR cap SCALES WITH REP LENGTH — ≤200m ~188 · 400–800m ~183 · 1km+ ~178. Never exceed 188 on any rep. ~4:25–4:35/km PROVISIONAL. Easy Z2: 6:50–7:30/km @ 140–150 bpm. All quality paces provisional until the Wk4 5K recalibration.
 // RHR baseline: 44–50 bpm. If morning RHR ≥5 above 7-day avg → convert quality to easy.
 
 // ─── PHASE INFO ──────────────────────────────
 const PI = {
   0:{n:'5K Finish',c:'var(--p0)',l:'rgba(96,165,250,.15)',wks:'Wks 1–4',
-     desc:'Finish the Reddit Intermediate 5K plan (Weeks 5–8). Paces from 1-Mile TT (6:57): reps at 4:25–4:32/km · tempo at 4:50–5:00/km. 2 quality run days per week. Easy runs: 140–150 bpm, walk if 155+ hit. Swim 4× flexible. Gym 3×. Time trial race end of Week 4.'},
+     desc:'Finish the Reddit Intermediate 5K plan (Weeks 5–8). Quality anchored by HR (Jun 2026 recalibration): tempo HR 157–170 (~5:15–5:40/km) · reps controlled-hard — HR cap scales with rep length (≤200m ~188, 400–800m ~183, 1km+ ~178), ~4:25–4:35/km provisional. Pace numbers reset at the Wk4 5K. 2 quality run days per week. Easy runs: 140–150 bpm, walk if 155+ hit. Swim 4× flexible. Gym 3×. Time trial race end of Week 4.'},
   1:{n:'Aerobic Base',c:'var(--p1)',l:'rgba(74,222,128,.15)',wks:'Wks 5–11',
      desc:'One quality run day (Tuesday only). 4 run days: Tue quality · Thu easy · Fri easy · Sat long. All easy runs prescribed by TIME + HR cap (150 bpm), not distance — walk 30s any time HR hits 155. Stair repeats from Wk 9. Incline treadmill from Wk 10. Acquire trail shoes by Wk 9. BA Half Marathon Sun 23 Aug (Wk 11) — controlled tempo, not a PR attempt.'},
   2:{n:'Trail Build',c:'var(--p2)',l:'rgba(251,191,36,.15)',wks:'Wks 12–19',
      desc:'Two quality run days. B2B weekends: Sunday run always 60–65% of Saturday distance. Elevation via incline treadmill (8–10%) and San Isidro stairs. Fuel mandatory on all runs >90 min. Gym drops to 2×/week. Peak long run 35–38 km in Wk 19.'},
   3:{n:'Taper',c:'var(--p3)',l:'rgba(192,132,252,.15)',wks:'Wks 20–27',
-     desc:'Volume drops each week. One quality day (Tuesday only). Gym reduces gradually: 3→2→1×/week over Wks 20–22, none from Wk 23. Gear rehearsal Wk 22. Travel week Wk 26 (Sat 6 Dec). El Cruce Wk 27 (Dec 8–10).'},
+     desc:'Volume drops each week. One quality day (Tuesday only). Gym holds at 2×/week (upper only, no heavy legs) through Wk 22, none from Wk 23 onward — full rest into El Cruce. Gear rehearsal Wk 22. Travel week Wk 26 (Sat 6 Dec). El Cruce Wk 27 (Dec 8–10).'},
   4:{n:'Recovery',c:'var(--p4)',l:'rgba(248,113,113,.15)',wks:'Wks 28–30',
      desc:'Zero running Wks 28–29. Swim from Wk 29. Bodyweight gym + easy running from Wk 30. Set 2027 goals only after feeling 100% recovered.'},
 };
@@ -266,7 +266,7 @@ function s(t,n,d){return{t,n,d:d||''};}
 const m10=s('mob','Mobility','10 min');
 const m15=s('mob','Mobility','15 min');
 const m20=s('mob','Mobility','20 min');
-const HR=s('rest','Home · Mobility','20 min');
+const HR=s('rest','Home · Full Mobility Flow','30 min');
 const SW4=s('swim','Swim (flex 4th)','30 min');
 
 // ─── WEEK DATA ────────────────────────────────
@@ -278,14 +278,14 @@ const SW4=s('swim','Swim (flex 4th)','30 min');
 const W = [
 // ── PHASE 0 ──────────────────────────────────
 {wk:1,ph:0,km:37,label:'5K Plan Wk 5',date:'8–14 Jun',badge:'',
-focus:'Week 5 of the Reddit plan. Tue: 4×800m at 4:25–4:32/km / 90s rest (preceded by swim AM). Sat: 15-min tempo at 4:50–5:00/km embedded at the START of long run, then Z2. Easy runs: HR 140–150 bpm, walk 30s if 155+ hit.',
+focus:'Week 5 of the Reddit plan. Tue: 4×800m controlled-hard / 90s rest · HR cap ~183 (800m reps, ~4:25–4:35/km provisional). Sat: 15-min tempo at HR 157–170 (~5:15–5:40/km) embedded at the START of long run, then Z2. Easy runs: HR 140–150 bpm, walk 30s if 155+ hit.',
 days:[
   [s('swim','Swim','30 min · drill sets'),s('gym-leg','Gym A · Legs','50 min'),m10],
-  [s('swim','Swim AM','30 min'),s('quality','4×800m / 90s rest','WU 3km + drills · reps 4:25–4:32/km · CD 2km'),m10],
+  [s('swim','Swim AM','30 min'),s('quality','4×800m / 90s rest','WU 3km + drills · reps controlled-hard, HR cap ~185 · CD 2km'),m10],
   [s('gym-leg','Gym B · Legs','45 min'),SW4],
   [s('swim','Swim AM','30 min'),s('easy','Easy run','45 min · HR 140–150 · walk if 155+'),m10],
   [s('easy','Easy run','40 min · HR 140–150'),s('gym-up','Gym C · Upper','35 min')],
-  [s('long','Long run · 15min tempo first','~15 km · WU 3km → 15min tempo 4:50–5:00/km → Z2 remainder'),m15],
+  [s('long','Long run · 15min tempo first','~15 km · WU 3km → 15min tempo HR 157–170 → Z2 remainder · fuel at ~60min'),m15],
   [HR],
 ]},
 {wk:2,ph:0,km:36,label:'5K Plan Wk 6',date:'15–21 Jun',badge:'TT',
@@ -296,29 +296,29 @@ days:[
   [s('gym-leg','Gym B · Legs','45 min'),SW4],
   [s('swim','Swim AM','30 min'),s('easy','Easy run + hill sprints','50 min · HR 140–150 · 6×20s hill sprints within'),m10],
   [s('easy','Easy run','40 min · HR 140–150'),s('gym-up','Gym C · Upper','35 min')],
-  [s('long','Long run · 8×400m first','~16 km · WU 2km → 8×400m/2min rest → Z2 remainder'),m15],
+  [s('long','Long run · 8×400m first','~16 km · WU 2km → 8×400m/2min rest → Z2 remainder · fuel at ~60min'),m15],
   [HR],
 ]},
 {wk:3,ph:0,km:39,label:'5K Plan Wk 7',date:'22–28 Jun',badge:'',
-focus:'Hardest week. Tue: 20-min standalone tempo at 4:50–5:00/km (TT-updated). Sat: 3×1mile at goal race pace / 4min recovery at the START of the long run, then Z2. Two quality sessions — respect recovery between them.',
+focus:'Hardest week. Tue: 20-min standalone tempo at HR 157–170 (~5:15–5:40/km) — run it by HR, ignore the old 4:50 number. Sat: 3×1mile controlled-hard / 4min recovery at the START of the long run · HR cap ~178 (mile-length reps sustain high HR longer — tightest cap of the week), do NOT exceed 182. Two quality sessions — respect recovery, and after last week\'s 198–201 redlines, hold the ceiling.',
 days:[
   [s('swim','Swim','30 min · drill sets'),s('gym-leg','Gym A · Legs','50 min'),m10],
-  [s('swim','Swim AM','30 min'),s('quality','20-min tempo run','WU 2km → 20min at 4:50–5:00/km → CD 2km'),m10],
+  [s('swim','Swim AM','30 min'),s('quality','20-min tempo run','WU 2km → 20min at HR 157–170 (~5:15–5:40/km) → CD 2km'),m10],
   [s('gym-leg','Gym B · Legs','45 min'),SW4],
   [s('swim','Swim AM','30 min'),s('easy','Easy run + hill sprints','50 min · HR 140–150 · 6×20s hills'),m10],
   [s('easy','Easy run','40 min · HR 140–150'),s('gym-up','Gym C · Upper','35 min')],
-  [s('long','Long run · 3×1mile first','~17 km · WU 3km → 3×1mile at race pace/4min rec → Z2 remainder'),m15],
+  [s('long','Long run · 3×1mile first','~17 km · WU 3km → 3×1mile controlled-hard, HR cap ~178 → Z2 remainder · fuel at ~60min'),m15],
   [HR],
 ]},
 {wk:4,ph:0,km:19,label:'5K RACE WEEK',date:'29 Jun–5 Jul',badge:'RACE',
-focus:'Light week. Time trial Saturday — treat it like a race. WU 2km, 4 strides, 2min rest, then go. Goal: sub-23:00 (your real ceiling is sub-22 with proper pacing). No new shoes, no new food.',
+focus:'Light week. 5K time trial Saturday — this is your RECALIBRATION race; accurate data beats a fast number. Pace it EVEN: controlled effort the first 3km, then push the last 2km. Going out hard wrecks the read (see the failed 2-mile). Sub-23:00 is the target — let even pacing earn it. No new shoes, no new food.',
 days:[
   [s('gym-leg','Gym A · Light','35 min'),s('swim','Swim','25 min · easy')],
   [s('swim','Swim AM','20 min'),s('quality','6×200m shakeout','WU 1.5km → 6×200m fast/full rec → CD 1.5km'),m10],
   [s('swim','Swim','25 min · easy'),m10],
   [s('easy','Easy + 4 strides','40 min · HR 140–150 · 4 strides at end'),m10],
   [s('swim','Swim','20 min · easy'),s('gym-up','Gym C · Light','25 min')],
-  [s('race','🏁 5K Time Trial','WU 2km + 4 strides · goal sub-23:00'),m15],
+  [s('race','🏁 5K Time Trial','WU 2km + 4 strides · sub-23:00 · EVEN pacing · recalibration race'),m15],
   [s('rest','Rest · celebrate',''),m10],
 ]},
 // ── PHASE 1 ──────────────────────────────────
@@ -330,7 +330,7 @@ days:[
   [s('gym-leg','Gym B · Legs','45 min'),SW4],
   [s('swim','Swim AM','30 min'),s('easy','Easy run','50 min · HR 140–150'),m10],
   [s('easy','Easy run','40 min · HR 140–150'),s('gym-up','Gym C · Upper','35 min')],
-  [s('long','Long run · Z2','16 km · ~1h50 · HR 140–150 · walk if 155+'),m15],
+  [s('long','Long run · Z2','16 km · ~1h50 · HR 140–150 · walk if 155+ · fuel at ~60min'),m15],
   [HR],
 ]},
 {wk:6,ph:1,km:43,label:'Base Build 1',date:'13–19 Jul',badge:'',
@@ -341,18 +341,18 @@ days:[
   [s('gym-leg','Gym B · Legs','45 min'),SW4],
   [s('swim','Swim AM','30 min'),s('easy','Easy run','55 min · HR 140–150'),m10],
   [s('easy','Easy run','45 min · HR 140–150'),s('gym-up','Gym C · Upper','35 min')],
-  [s('long','Long run · Z2','19 km · ~2h15 · HR 140–150'),m15],
+  [s('long','Long run · Z2','19 km · ~2h15 · HR 140–150 · fuel every 40min'),m15],
   [HR],
 ]},
 {wk:7,ph:1,km:48,label:'Base Build 2',date:'20–26 Jul',badge:'',
-focus:'Tempo introduced: 3×2km at 4:50–5:00/km / 2min jog. Easy runs time-governed. Long run 21km — progressive build over Wks 6-7 before down week.',
+focus:'Tempo introduced: 3×2km at HR 157–170 (~5:15–5:40/km) / 2min jog. Easy runs time-governed. Long run 21km — progressive build over Wks 6-7 before down week.',
 days:[
   [s('swim','Swim','40 min · 6×50m sets'),s('gym-leg','Gym A · Legs','50 min'),m10],
-  [s('swim','Swim AM','30 min'),s('quality','Tempo 3×2km','WU 2km + 4 strides → 3×2km at 4:50–5:00/km/2min jog → CD 2km'),m10],
+  [s('swim','Swim AM','30 min'),s('quality','Tempo 3×2km','WU 2km + 4 strides → 3×2km at HR 157–170 (~5:15–5:40/km)/2min jog → CD 2km'),m10],
   [s('gym-leg','Gym B · Legs','45 min'),SW4],
   [s('swim','Swim AM','30 min'),s('easy','Easy run','60 min · HR 140–150'),m10],
   [s('easy','Easy run','50 min · HR 140–150'),s('gym-up','Gym C · Upper','35 min')],
-  [s('long','Long run · Z2','21 km · ~2h30 · HR 140–150'),m15],
+  [s('long','Long run · Z2','21 km · ~2h30 · HR 140–150 · fuel every 40min'),m15],
   [HR],
 ]},
 {wk:8,ph:1,km:33,label:'Down Week',date:'27 Jul–2 Aug',badge:'DOWN',
@@ -363,7 +363,7 @@ days:[
   [s('gym-leg','Gym B · Light','35 min'),SW4],
   [s('swim','Swim AM','25 min'),s('easy','Easy run','40 min · HR 140–150'),m10],
   [s('easy','Easy run','35 min · HR 140–150'),s('gym-up','Gym C · Upper','30 min')],
-  [s('long','Easy long run','17 km · very easy · HR cap 148'),m15],
+  [s('long','Easy long run','17 km · very easy · HR cap 148 · light snack if needed'),m15],
   [HR],
 ]},
 {wk:9,ph:1,km:40,label:'Stair Repeats',date:'3–9 Aug',badge:'KEY',
@@ -392,12 +392,12 @@ days:[
 focus:'BA Half Sun 23 Aug — a fitness test, not a PR. Race week now properly tapered: Tue is a lighter sharpener (3×2km), Thu/Fri easy volume cut, Sat shakeout 8km. Arrive fresh. Race controlled (1:50–1:55) — do not chase a time. ACWR was 1.41 as written; this brings it to 1.28.',
 days:[
   [s('swim','Swim','40 min'),s('gym-leg','Gym A · Legs','50 min'),m10],
-  [s('swim','Swim AM','30 min'),s('quality','Tempo 3×2km · sharpener','WU 2km → 3×2km at 4:50–5:00/km/2min jog → CD 2km'),m10],
+  [s('swim','Swim AM','30 min'),s('quality','Tempo 3×2km · sharpener','WU 2km → 3×2km at HR 157–170 (~5:15–5:40/km)/2min jog → CD 2km'),m10],
   [s('gym-leg','Gym B · Legs','45 min'),SW4],
   [s('swim','Swim AM','30 min'),s('easy','Easy run','50 min · HR 140–150'),m10],
   [s('easy','Easy run','40 min · HR 140–150'),s('gym-up','Gym C · Upper','35 min')],
   [s('easy','Shakeout run','8 km · very easy · HR 140 max · no tempo'),m10],
-  [s('race','🏁 BA Half Marathon','target: 1:50–1:55 · controlled tempo · not all-out'),m15],
+  [s('race','🏁 BA Half Marathon','target: 1:50–1:55 · controlled tempo · not all-out · 1 gel ~45–50min in'),m15],
 ]},
 // ── PHASE 2 ──────────────────────────────────
 {wk:12,ph:2,km:59,label:'B2B Begins',date:'24–30 Aug',badge:'KEY',
@@ -405,7 +405,7 @@ focus:'First B2B weekend. No Fri quality this week — Sat long + Sun B2B is suf
 days:[
   [s('swim','Swim','40 min'),s('gym-leg','Gym A · Legs','50 min'),m10],
   [s('swim','Swim AM','30 min'),s('quality','Incline treadmill','45 min · 8–10% · Z3–Z4'),m10],
-  [s('gym-leg','Gym B · Legs','45 min'),SW4],
+  [SW4],
   [s('swim','Swim AM','30 min'),s('easy','Easy run','65 min · HR 140–150'),m10],
   [s('easy','Easy run','50 min · HR 140–150'),s('gym-up','Gym C · Upper','35 min')],
   [s('long','Long run + gels','26 km · ~3h10 · fuel every 40min'),m15],
@@ -416,7 +416,7 @@ focus:'Fri quality introduced: progression tempo. Tue: stair repeats (10×). Lon
 days:[
   [s('swim','Swim','40 min'),s('gym-leg','Gym A · Legs','50 min'),m10],
   [s('swim','Swim AM','30 min'),s('quality','10× stair repeats','WU 2km → 10× stairs Z4/walk down → CD 2km'),m10],
-  [s('gym-leg','Gym B · Legs','45 min'),SW4],
+  [SW4],
   [s('swim','Swim AM','30 min'),s('easy','Easy run','65 min · HR 140–150'),m10],
   [s('quality','Progression tempo','WU 2km → 10km prog: km1–6 Z2–Z3 / km7–10 Z4 → CD 1km'),s('gym-up','Gym C · Upper','35 min')],
   [s('long','Long run + gels','28 km · ~3h25 · fuel every 40min'),m15],
@@ -427,7 +427,7 @@ focus:'Long run hits 30km — real milestone. Fuel every 40min, plan water every
 days:[
   [s('swim','Swim','40 min'),s('gym-leg','Gym A · Legs','50 min'),m10],
   [s('swim','Swim AM','30 min'),s('quality','Incline treadmill','50 min · 10% · Z3–Z4'),m10],
-  [s('gym-leg','Gym B · Legs','45 min'),SW4],
+  [SW4],
   [s('swim','Swim AM','30 min'),s('easy','Easy run','65 min · HR 140–150'),m10],
   [s('quality','Progression tempo','WU 2km → 10km prog: km1–6 Z2–Z3 / km7–10 Z4 → CD 1km · NOT stairs'),s('gym-up','Gym C · Upper','35 min')],
   [s('long','Long run + gels','30 km · ~3h40 · fuel every 40min'),m15],
@@ -438,7 +438,7 @@ focus:'Critical down week. No B2B Sunday. No extra sessions. Body absorbs all Ph
 days:[
   [s('swim','Swim','30 min'),s('gym-leg','Gym A · Light','35 min'),m10],
   [s('swim','Swim AM','25 min'),s('easy','Easy run','45 min · HR 140–150'),m10],
-  [s('gym-leg','Gym B · Light','35 min'),SW4],
+  [SW4],
   [s('swim','Swim AM','25 min'),s('easy','Easy run','45 min · HR 140–150'),m10],
   [s('easy','Easy run','40 min · HR 140–150'),s('gym-up','Gym C · Upper','30 min')],
   [s('long','Easy long run','22 km · very easy · HR cap 148'),m15],
@@ -449,7 +449,7 @@ focus:'Full elevation simulation: Sat long with 10-min treadmill incline segment
 days:[
   [s('swim','Swim','40 min'),s('gym-leg','Gym A · Legs','50 min'),m10],
   [s('swim','Swim AM','30 min'),s('quality','Incline treadmill','50 min · 10% · Z3–Z4'),m10],
-  [s('gym-leg','Gym B · Legs','45 min'),SW4],
+  [SW4],
   [s('swim','Swim AM','30 min'),s('easy','Easy run','65 min · HR 140–150'),m10],
   [s('quality','Progression tempo','WU 2km → 10km prog Z2–Z3 then Z4 last 4km → CD 1km'),s('gym-up','Gym C · Upper','30 min')],
   [s('long','Long run · incline sim','30 km · 10min incline every 30min · fuel every 40min'),m15],
@@ -460,7 +460,7 @@ focus:'Planned cutback — a tendon recovery valve before the peak. Long eased t
 days:[
   [s('swim','Swim','40 min'),s('gym-leg','Gym A · Legs','50 min'),m10],
   [s('swim','Swim AM','30 min'),s('quality','12× stair repeats + 3km tempo','WU 2km → 12× stairs → 3km tempo → CD 2km'),m10],
-  [s('gym-leg','Gym B · Legs','45 min'),SW4],
+  [SW4],
   [s('swim','Swim AM','30 min'),s('easy','Easy run','65 min · HR 140–150'),m10],
   [s('quality','Incline treadmill','40 min · 8–10% · Z3 only · reduced before Sat long'),s('gym-up','Gym C · Upper','35 min')],
   [s('long','Long run + gels','26 km · ~3h10 · fuel every 40min'),m15],
@@ -470,8 +470,8 @@ days:[
 focus:'Second peak volume week. Long run 34km — one step below Wk19 max. Fri incline treadmill reduced to 40min/Z3 only to protect legs before the long run. B2B Sunday 60% (~20km). Full fueling protocol.',
 days:[
   [s('swim','Swim','40 min'),s('gym-leg','Gym A · Legs','50 min'),m10],
-  [s('swim','Swim AM','30 min'),s('quality','Stair repeats + tempo','WU 2km → 10× stairs → 3km tempo at 4:50/km → CD 2km'),m10],
-  [s('gym-leg','Gym B · Legs','45 min'),SW4],
+  [s('swim','Swim AM','30 min'),s('quality','Stair repeats + tempo','WU 2km → 10× stairs → 3km tempo at HR 157–170 → CD 2km'),m10],
+  [SW4],
   [s('swim','Swim AM','30 min'),s('easy','Easy run','65 min · HR 140–150'),m10],
   [s('quality','Incline treadmill','40 min · 8% · Z3 only · legs need to be fresh for Sat'),s('gym-up','Gym C · Upper','30 min')],
   [s('long','Long run + gels','34 km · ~4h10 · fuel every 40min · water every 7km'),m15],
@@ -481,8 +481,8 @@ days:[
 focus:'Biggest single session of the plan: 36–38km. Plan water every 7km. Fri = full rest, legs must be fresh. Sun B2B = 60% (~22km). This is your El Cruce dress rehearsal — and it exceeds your 2025 peak, on a base built to hold.',
 days:[
   [s('swim','Swim','40 min'),s('gym-leg','Gym A · Legs','50 min'),m10],
-  [s('swim','Swim AM','30 min'),s('quality','Tempo run','WU 2km → 3×3km at 4:50–5:00/km/2min jog → CD 2km'),m10],
-  [s('gym-leg','Gym B · Legs','45 min'),SW4],
+  [s('swim','Swim AM','30 min'),s('quality','Tempo run','WU 2km → 3×3km at HR 157–170 (~5:15–5:40/km)/2min jog → CD 2km'),m10],
+  [SW4],
   [s('swim','Swim AM','30 min'),s('easy','Easy run','60 min · HR 140–150'),m10],
   [s('rest','Rest · legs ready','no run · sleep well tonight'),m10],
   [s('long','PEAK run + gels','36–38 km · full sim · fuel from km 5 · water every 7km'),m15],
@@ -497,68 +497,68 @@ days:[
   [s('swim','Swim','35 min'),s('gym-up','Gym · Upper only','40 min'),m10],
   [s('swim','Swim AM','30 min'),s('easy','Easy run','60 min · HR 140–150'),m10],
   [s('easy','Easy run','45 min · HR 140–150'),s('gym-up','Gym C · Upper','35 min')],
-  [s('long','Long run','25 km · last big one · no B2B'),m15],
+  [s('long','Long run','25 km · last big one · no B2B · fuel every 40min'),m15],
   [HR],
 ]},
 {wk:21,ph:3,km:44,label:'Taper 2',date:'26 Oct–1 Nov',badge:'',
-focus:'Volume drops further. 1 quality. Gym 1×/week. Sunday is home rest — no B2B in taper. Sleep is training now — prioritize 8+ hours. Do not add sessions.',
+focus:'Volume drops further. 1 quality. Gym 2×/week, upper only — legs stay untouched this close to the race. Sunday is home rest — no B2B in taper. Sleep is training now — prioritize 8+ hours.',
 days:[
   [s('rest','Rest',''),m10],
   [s('swim','Swim AM','30 min'),s('quality','4×1km at Z4','WU 2km + 4 strides → 4×1km/2min rec → CD 2km'),m10],
   [s('swim','Swim','30 min'),s('gym-up','Gym · Upper only','35 min'),m10],
   [s('swim','Swim AM','25 min'),s('easy','Easy run','50 min · HR 140–150'),m10],
-  [s('easy','Easy run','45 min · HR 140–150'),m10],
-  [s('long','Easy long run','20 km · Z2 · no pressure'),m15],
+  [s('easy','Easy run','45 min · HR 140–150'),s('gym-up','Gym · Upper light','25 min')],
+  [s('long','Easy long run','20 km · Z2 · no pressure · fuel at ~60min'),m15],
   [HR],
 ]},
 {wk:22,ph:3,km:32,label:'Gear Check Week',date:'2–8 Nov',badge:'KEY',
-focus:'Full gear rehearsal Sat — pack, poles (if using), nutrition, trail shoes, everything. Test every item on your body for 18km. Gym drops to 1×/week from here.',
+focus:'Full gear rehearsal Sat — pack, poles (if using), nutrition, trail shoes, everything. Test every item on your body for 18km. Gym holds at 2×/week, upper only.',
 days:[
   [s('rest','Rest',''),m10],
   [s('swim','Swim AM','25 min'),s('quality','Shakeout + 3×1km','WU 2km → 3×1km at 5K pace/90s rec → CD 2km'),m10],
-  [s('swim','Swim','25 min'),m10],
+  [s('swim','Swim','25 min'),s('gym-up','Gym · Upper light','20 min'),m10],
   [s('easy','Easy run','45 min · HR 140–150'),m10],
-  [s('swim','Swim','20 min'),s('gym-up','Gym · Upper light · 1× only','25 min')],
+  [s('swim','Swim','20 min'),s('gym-up','Gym · Upper light','25 min')],
   [s('long','Full gear rehearsal','18 km · test every piece of kit'),m15],
   [s('rest','Gear check','confirm every item is ready for Dec 8'),m15],
 ]},
 {wk:23,ph:3,km:21,label:'Taper 3',date:'9–15 Nov',badge:'',
-focus:'Very low volume. Runs feel surprisingly easy — good sign. Focus on sleep, nutrition, and logistics planning. No gym this week or onward.',
+focus:'Very low volume. Runs feel surprisingly easy — good sign. Gym continues 2×/week, light upper only — short sessions, nothing taxing. Focus on sleep, nutrition, and logistics planning.',
 days:[
   [s('rest','Rest',''),m10],
   [s('swim','Swim AM','25 min'),s('easy','Easy run','45 min · HR 140–150'),m10],
-  [s('swim','Swim','25 min'),m10],
+  [s('swim','Swim','25 min'),s('gym-up','Gym · Upper light','20 min'),m10],
   [s('easy','Easy + 4 strides','35 min · HR 140–150 · strides at end'),m10],
-  [s('swim','Swim','20 min'),m10],
+  [s('swim','Swim','20 min'),s('gym-up','Gym · Upper light','20 min'),m10],
   [s('long','Easy run','10 km · HR 140–150 · last meaningful training run'),m15],
   [s('rest','Home rest','sleep 9 hours'),m15],
 ]},
 {wk:24,ph:3,km:16,label:'Taper 4',date:'16–22 Nov',badge:'',
-focus:'Volume very low. Body is absorbing everything. Do not add sessions. Runs should feel almost insultingly easy — that is the correct signal. Focus on sleep, food quality, and logistics prep.',
+focus:'Volume very low. Body is absorbing everything. Gym holds 2×/week, light upper, 15min and shrinking. Runs should feel almost insultingly easy — that is the correct signal. Focus on sleep, food quality, and logistics prep.',
 days:[
   [s('rest','Rest',''),m10],
   [s('swim','Swim AM','20 min'),s('easy','Easy run','30 min · HR 140 max'),m10],
-  [s('swim','Swim','20 min'),m10],
+  [s('swim','Swim','20 min'),s('gym-up','Gym · Upper light','15 min'),m10],
   [s('easy','Easy + 4 strides','25 min · HR 140–150 · feel sharp'),m10],
-  [s('swim','Swim','15 min'),m10],
+  [s('swim','Swim','15 min'),s('gym-up','Gym · Upper light','15 min'),m10],
   [s('easy','Easy run','8 km · HR 140–150 · last shakeout before race week'),m15],
   [s('rest','Home rest','sleep 9 hours · review race plan'),m15],
 ]},
 {wk:25,ph:3,km:13,label:'Taper 5',date:'23–29 Nov',badge:'',
-focus:'Last full taper week before race travel. Volume near zero. Legs will feel springy and slightly restless — perfect. Eat carbs, sleep long, confirm all logistics.',
+focus:'Last full taper week before race travel. Volume near zero. Gym down to 1×/week, 10min upper touch only — scaled back further this close to travel. Legs will feel springy and slightly restless — perfect. Eat carbs, sleep long, confirm all logistics.',
 days:[
   [s('rest','Rest',''),m10],
   [s('swim','Swim AM','20 min'),s('easy','Easy run','25 min · HR 140 max'),m10],
-  [s('swim','Swim','15 min'),m10],
+  [s('swim','Swim','15 min'),s('gym-up','Gym · Upper light','10 min'),m10],
   [s('easy','Easy + 4 strides','20 min · HR 140–150 · feel sharp'),m10],
   [s('rest','Rest',''),m10],
   [s('easy','Easy run','6 km · HR 140–150 · last shakeout at home'),m15],
   [s('rest','Pack · logistics','confirm every kit item for race'),m15],
 ]},
 {wk:26,ph:3,km:3,label:'Race Week · Travel',date:'30 Nov–6 Dec',badge:'RACE',
-focus:'Sat 6 Dec = drive to race with friends — no training, enjoy the trip. Sun 7 Dec = arrive, register, rest. Only 2×10min shakeouts Mon+Wed. No new food, shoes, or routines this week.',
+focus:'Sat 6 Dec = drive to race with friends — no training, enjoy the trip. Sun 7 Dec = arrive, register, rest. Only 2×10min shakeouts Mon+Wed, plus one 5min upper touch Monday — continuing the existing habit, nothing new. No new food, shoes, or other routines this week.',
 days:[
-  [s('rest','Rest',''),m10],
+  [s('gym-up','Gym · Upper light','5 min'),m10],
   [s('easy','Shakeout','10 min easy · HR 140 max · loosen up'),m10],
   [s('rest','Rest',''),m10],
   [s('easy','Shakeout','10 min easy · HR 140 max · 4 strides'),m10],
@@ -701,7 +701,7 @@ const SC = {
   },
   3:{
     label:'Phase 3 · Deload',
-    sub:'Gym 1×/week, upper + core only. No heavy lower body — legs arrive at El Cruce fresh. 2 sets max, RPE never above 6.',
+    sub:'Gym 2×/week (Wks 20–22), upper + core only. No heavy lower body — legs arrive at El Cruce fresh. 2 sets max, RPE never above 6.',
     prog:'Weights at 60–70% of Phase 2. Stop before any fatigue. This is maintenance, not training.',
     gymA:{n:'Gym · Upper + core only',day:'Wednesday',dur:'30 min',exs:[
       ex('Pull-up / lat pulldown','Light · just moving','2×6','RPE 5'),
@@ -733,11 +733,11 @@ const SC = {
 const RW = {
   0:{
     label:'Phase 0 · 5K Plan Quality Sessions',
-    sub:'Reddit Intermediate 5K plan (Weeks 5–8). Paces derived from 1-Mile TT: 6:57 (4:19/km). Rep pace: 4:25–4:32/km. Tempo: 4:50–5:00/km. Tuesday = standalone quality. Saturday = quality block at the START of the long run, then easy Z2. Always quality first while legs are fresh. Warm-up: 3km easy + 4 dynamic drills (leg swings, high knees, butt kicks, quick-step 20s). RHR rule: if morning RHR ≥5 bpm above your 7-day avg → convert to easy run.',
+    sub:'Reddit Intermediate 5K plan (Weeks 5–8). Quality is HR-anchored (Jun 2026, after the 1-mile-derived paces proved too fast): Tempo = HR 157–170 bpm (~5:15–5:40/km). Reps = controlled-hard, HR cap scales with rep length: ≤200m ~188 · 400–800m ~183 · 1km+ ~178. Never exceed 188 (~4:25–4:35/km, PROVISIONAL). All pace numbers reset at the Wk4 5K — until then trust HR/effort, not the clock. Tuesday = standalone quality. Saturday = quality block at the START of the long run, then easy Z2. Always quality first while legs are fresh. Warm-up: 3km easy + 4 dynamic drills (leg swings, high knees, butt kicks, quick-step 20s). RHR rule: if morning RHR ≥5 bpm above your 7-day avg → convert to easy run.',
     sessions:[
       {n:'4×800m / 90s rest',day:'Tue · Wk 1 (Jun 9)',type:'quality',rows:[
         {l:'Warm-up',d:'3 km easy jog (6:50–7:30/km) · then 4 dynamic drills: leg swings 15× each · high knees 20s · butt kicks 20s · quick-step strides 4×20s'},
-        {l:'Main set',d:'4 repetitions of 800m at 4:25–4:32/km · 90s standing rest between reps · cadence target 90 spm'},
+        {l:'Main set',d:'4×800m controlled-hard · HR cap ~183 (800m reps run hotter — cap tighter than short reps) · 90s standing rest · cadence target 90 spm'},
         {l:'Cool-down',d:'2 km easy jog · 12 min'},
         {l:'Total',d:'~10 km · ~55 min'},
         {l:'Feel',d:'Each rep controlled-hard. Should finish each 800m feeling you could do one more. Last rep same pace as first.'},
@@ -745,22 +745,22 @@ const RW = {
       ]},
       {n:'2-Mile TT',day:'Tue · Wk 2 (Jun 16)',type:'tt',rows:[
         {l:'Warm-up',d:'2 km easy · 4 strides (80% effort, 20s each) · 2 min standing rest'},
-        {l:'Time trial',d:'2 miles (3.2 km) — all-out, flat course. This recalibrates all training paces.'},
+        {l:'Status',d:'COMPLETED & FAILED (Tue 16 Jun): went out 4:16/km, HR 198, blew up at ~1 km. Recalibration now happens at the Wk4 5K instead.'},
         {l:'Cool-down',d:'1.5 km very easy'},
-        {l:'Target',d:'Sub-13:30 (4:13/km). Your mile TT was 6:57 so this is very achievable. Go out controlled — first mile should feel 90%, second mile everything you have left.'},
-        {l:'After',d:'Record time. New rep pace = TT pace + 5–10s/km. New tempo = TT pace + 30–35s/km. Update everything from here.'},
+        {l:'Lesson',d:'The sub-13:30 target was extrapolated from the 1-mile PR and ignored sustainable 2-mile pacing — it was never realistic for current fitness. Takeaway: even pacing + HR ceiling, not a number chased from the gun.'},
+        {l:'Now',d:'Quality is HR-anchored until the Wk4 5K gives a clean number. Tempo by HR 157–170; reps controlled-hard, HR cap ~185.'},
       ]},
       {n:'20-min standalone tempo',day:'Tue · Wk 3 (Jun 23)',type:'quality',rows:[
         {l:'Warm-up',d:'3 km easy + 4 dynamic drills'},
-        {l:'Main set',d:'20 min continuous at tempo pace (4:50–5:00/km) · Z3–Z4 · controlled discomfort — standalone session'},
+        {l:'Main set',d:'20 min continuous at HR 157–170 (~5:15–5:40/km) · controlled discomfort — run by HR, not the old 4:50 pace'},
         {l:'Cool-down',d:'2 km easy'},
         {l:'Total',d:'~9 km · 45 min'},
-        {l:'Note',d:'Saturday this week has 3×1mile at race pace. These are two separate quality sessions — the hardest week of the 5K plan. Respect recovery between them.'},
+        {l:'Note',d:'Saturday this week has 3×1mile (controlled-hard, HR cap ~185). Two separate quality sessions — hardest week of the 5K plan. Respect recovery, and hold the ceiling — last week both quality days hit 198–201 bpm.'},
       ]},
       {n:'SAT Wk 1 · 15-min tempo at start of long run',day:'Sat · Wk 1 (Jun 14)',type:'long',rows:[
         {l:'Structure',d:'Quality FIRST while legs are fresh — never at the end.'},
         {l:'Warm-up',d:'3 km easy + 4 dynamic drills'},
-        {l:'Quality block',d:'15 min continuous at 4:50–5:00/km (tempo) · Z3–Z4'},
+        {l:'Quality block',d:'15 min continuous at HR 157–170 (~5:15–5:40/km) · tempo'},
         {l:'Recovery jog',d:'3 min easy'},
         {l:'Remainder',d:'Continue at Z2 (HR 140–150 · 6:50–7:30/km) until ~15 km total'},
         {l:'Total',d:'~15 km · ~1h50'},
@@ -769,15 +769,15 @@ const RW = {
       {n:'SAT Wk 2 · 8×400m at start of long run',day:'Sat · Wk 2 (Jun 21)',type:'long',rows:[
         {l:'Structure',d:'Quality FIRST.'},
         {l:'Warm-up',d:'2 km easy + 4 dynamic drills'},
-        {l:'Quality block',d:'8×400m at 4:25–4:32/km · 2min rest between reps (updated from TT)'},
+        {l:'Quality block',d:'8×400m controlled-hard · HR cap ~185 (~4:25–4:35/km provisional) · 2min rest'},
         {l:'Recovery jog',d:'3 min easy after last rep'},
         {l:'Remainder',d:'Continue at Z2 until ~16 km total'},
         {l:'Total',d:'~16 km · ~2h'},
       ]},
-      {n:'SAT Wk 3 · 3×1mile at race pace at start of long run',day:'Sat · Wk 3 (Jun 28)',type:'long',rows:[
+      {n:'SAT Wk 3 · 3×1mile controlled-hard at start of long run',day:'Sat · Wk 3 (Jun 28)',type:'long',rows:[
         {l:'Structure',d:'Quality FIRST.'},
         {l:'Warm-up',d:'3 km easy + 4 dynamic drills'},
-        {l:'Quality block',d:'3×1 mile (1.6 km) at goal 5K race pace (4:25–4:32/km) · 4 min recovery jog between reps'},
+        {l:'Quality block',d:'3×1 mile (1.6 km) controlled-hard · HR cap ~178, do NOT exceed 182 — mile reps sustain elevated HR far longer than short reps (~4:25–4:35/km provisional) · 4 min recovery jog'},
         {l:'Recovery jog',d:'4 min easy after last rep'},
         {l:'Remainder',d:'Continue at Z2 until ~17 km total'},
         {l:'Total',d:'~17 km · ~2h05'},
@@ -787,7 +787,7 @@ const RW = {
       {n:'6×200m shakeout',day:'Tue · Wk 4 · race week',type:'quality',rows:[
         {l:'Purpose',d:'Keep legs sharp without fatiguing them 4 days out. Simple, brief, done.'},
         {l:'Warm-up',d:'1.5 km very easy'},
-        {l:'Main set',d:'6×200m at faster than 5K pace (4:00–4:10/km) · full recovery between reps'},
+        {l:'Main set',d:'6×200m faster than current 5K effort · HR cap ~188 (short reps tolerate it) · full recovery between reps'},
         {l:'Cool-down',d:'1.5 km easy'},
         {l:'Total',d:'~5 km · 25 min · nothing more'},
       ]},
@@ -806,7 +806,7 @@ const RW = {
       ]},
       {n:'Tempo 3×2km',day:'Tue · Wk 7',type:'quality',rows:[
         {l:'Warm-up',d:'3 km easy + 4 dynamic drills'},
-        {l:'Main set',d:'3×2km at 4:50–5:00/km · 2min jog recovery between reps'},
+        {l:'Main set',d:'3×2km at HR 157–170 (~5:15–5:40/km) · 2min jog recovery between reps'},
         {l:'Cool-down',d:'2 km easy'},
         {l:'Total',d:'~11 km · Z3–Z4 during work reps'},
         {l:'Feel',d:'Comfortably hard — could speak 3–4 words but not hold a conversation'},
@@ -828,7 +828,7 @@ const RW = {
       ]},
       {n:'Tempo 3×3km',day:'Tue · Wk 11',type:'quality',rows:[
         {l:'Warm-up',d:'3 km easy + 4 dynamic drills'},
-        {l:'Main set',d:'3×3km at 4:50–5:00/km · 2min jog recovery'},
+        {l:'Main set',d:'3×3km at HR 157–170 (~5:15–5:40/km) · 2min jog recovery'},
         {l:'Cool-down',d:'2 km easy'},
         {l:'Total',d:'~13 km · hardest Phase 1 session'},
         {l:'Feel',d:'Last rep tough but completable. If rep 3 falls apart, rep 1 was too fast.'},
@@ -889,6 +889,15 @@ const MOB = [
   {z:'Ankles',c:'#0e7490',exs:['Ankle circles · 20× each direction','Wall ankle stretch · 30s/side','Eccentric calf raise · 10×','Peroneal glide stretch · 20s/side']},
   {z:'Hips',c:'#6d28d9',exs:['90/90 hip sit · 60s each side','Pigeon pose · 60s/side','Hip flexor lunge · 45s/side','Lateral leg swing · 15× each']},
   {z:'Hamstrings',c:'#059669',exs:['Standing forward fold · 60s','Nordic lowering · 5×','Seated straight-leg reach · 45s','Single-leg hamstring · 30s/side']},
+];
+
+// ─── SUNDAY FULL MOBILITY FLOW (longer weekly reset) ──
+const SUN_MOB = [
+  {z:'Ankles',c:'#0e7490',exs:['Ankle circles · 20× each direction','Wall ankle stretch · 30s/side','Eccentric calf raise · 12×','Peroneal glide stretch · 30s/side','Resisted dorsiflexion (band) · 15× each']},
+  {z:'Hips',c:'#6d28d9',exs:['90/90 hip sit · 90s each side','Pigeon pose · 90s/side','Hip flexor lunge · 60s/side','Lateral leg swing · 20× each','Clamshells · 15× each side']},
+  {z:'Hamstrings',c:'#059669',exs:['Standing forward fold · 90s','Nordic lowering · 6×','Seated straight-leg reach · 60s','Single-leg hamstring · 45s/side','Sliding leg curl (towel/socks) · 10×']},
+  {z:'Quads & IT Band',c:'#b45309',exs:['Foam roll quads · 60s/side','Foam roll IT band · 45s/side','Couch stretch · 60s/side','Standing quad pull · 45s/side']},
+  {z:'Lower Back & T-Spine',c:'#be123c',exs:['Cat-cow · 12 reps','Thread the needle · 45s/side','Supine spinal twist · 45s/side','Child\'s pose · 90s']},
 ];
 
 // ─── STATE ────────────────────────────────────
@@ -959,12 +968,12 @@ setInterval(updateCountdown, 1000);
 
 // ─── PACE CALCULATOR ──────────────────────────
 function calcPaces(){
-  const minEl=document.getElementById('ttMin'), secEl=document.getElementById('ttSec');
-  if(!minEl||!secEl) return;
-  const ttSec=(parseFloat(minEl.value)||13)*60+(parseFloat(secEl.value)||30);
+  const minEl=document.getElementById('ttMin'), secEl=document.getElementById('ttSec'), distEl=document.getElementById('ttDist');
+  if(!minEl||!secEl||!distEl) return;
+  const ttSec=(parseFloat(minEl.value)||22)*60+(parseFloat(secEl.value)||30);
+  const baseDist=parseFloat(distEl.value)||5000; // meters — whatever TT the user actually ran
   // Riegel: T2 = T1 × (D2/D1)^1.06
-  const mile=1609.34;
-  function riegel(d){return ttSec*Math.pow(d/(mile*2),1.06);}
+  function riegel(d){return ttSec*Math.pow(d/baseDist,1.06);}
   function fmt(s){s=Math.round(s);return Math.floor(s/60)+':'+String(s%60).padStart(2,'0');}
   function pace(s,km){const spk=s/km;return Math.floor(spk/60)+':'+String(Math.round(spk%60)).padStart(2,'0')+'/km';}
   const distances=[['400m',0.4],['1K',1],['1 Mile',1.609],['5K',5],['10K',10],['HM',21.097]];
@@ -1046,11 +1055,20 @@ function renderToday(){
       <div id="countdown" class="countdown"></div>
       ${curWk<=4?`<div class="pace-calc">
         <div class="pc-head">
-          <div><div class="pc-title">Pace Calculator</div><div class="pc-sub">Enter your 2-mile TT result</div></div>
+          <div><div class="pc-title">Pace Calculator</div><div class="pc-sub">Pace projector — enter any recent TT (real anchor: Wk4 5K)</div></div>
         </div>
         <div class="pc-input-row">
-          <label>2-Mile TT</label>
-          <input class="pc-input" id="ttMin" type="number" oninput="calcPaces()" min="10" max="20" placeholder="13" value="13">
+          <label>Distance</label>
+          <select class="pc-input" id="ttDist" onchange="calcPaces()" style="width:90px">
+            <option value="1609">1 Mile</option>
+            <option value="3218">2 Mile</option>
+            <option value="5000" selected>5K</option>
+            <option value="10000">10K</option>
+          </select>
+        </div>
+        <div class="pc-input-row">
+          <label>Time</label>
+          <input class="pc-input" id="ttMin" type="number" oninput="calcPaces()" min="3" max="60" placeholder="22" value="22">
           <span style="color:var(--muted);font-size:12px">min</span>
           <input class="pc-input" id="ttSec" type="number" oninput="calcPaces()" min="0" max="59" placeholder="30" value="30">
           <span style="color:var(--muted);font-size:12px">sec</span>
@@ -1174,6 +1192,12 @@ function renderWorkouts(){
       ${z.exs.map(e=>`<div class="mob-ex">${e}</div>`).join('')}
     </div>`).join('');
 
+  const sunMobHTML=SUN_MOB.map(z=>`
+    <div class="mob-zone">
+      <div class="mob-zone-title" style="color:${z.c}">${z.z}</div>
+      ${z.exs.map(e=>`<div class="mob-ex">${e}</div>`).join('')}
+    </div>`).join('');
+
   const gymSection=sc?`
     <div class="section-hdr" style="color:${phColor(scPhase)}">Strength & Conditioning</div>
     <div class="section-sub">${sc.sub}</div>
@@ -1188,7 +1212,10 @@ function renderWorkouts(){
   const mobSection=`
     <div class="section-hdr">Daily Mobility · 10–20 min after running</div>
     <div class="section-sub">Ankles, hips, hamstrings — every day. Quick (10 min) post-run: Ankle circles → 90/90 hips → pigeon → forward fold. Full (20 min) after long run and Sunday.</div>
-    <div class="mob-grid">${mobHTML}</div>`;
+    <div class="mob-grid">${mobHTML}</div>
+    <div class="section-hdr">Sunday Full Mobility Flow · 25–30 min</div>
+    <div class="section-sub">The dedicated weekly reset — five zones, full sequence, foam roller helps on quads/IT band but isn't required. Run it every Sunday that isn't a B2B run day (Phase 2 Sundays already get a hard effort — the post-run 10min covers it that day).</div>
+    <div class="mob-grid">${sunMobHTML}</div>`;
 
   const finalHTML = `
     <div class="wk-tab-section">
