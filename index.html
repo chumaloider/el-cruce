@@ -261,12 +261,12 @@ const PI = {
      desc:'Cerrar la escalera de retorno con margen real, no al límite. Cuatro días de carrera (mar calidad · mié fácil corto · jue fácil · sáb long) — el miércoles es nuevo y ocupa desde ya el lugar que en el Bloque 2 pasa a ser descenso. Long run 15 → 16 → 18 km. Una calidad por semana con techo de HR de verdad (157–170, nunca arriba de 172). Powerhike semanal 75–90 min, sumando mochila liviana desde la Sem 2. El trabajo excéntrico de descenso arranca en el gimnasio — es la fase que tiene que preceder a cualquier bajada en terreno. Protocolo peroneo diario, sin excepción.'},
   2:{n:'Construcción',c:'var(--b2)',l:'rgba(74,222,128,.15)',wks:'Sem 4–8',
      desc:'Volumen y especificidad de montaña en paralelo. Long run 19 → 21 → 23 → (17 baja) → 26 km. Segunda calidad semanal desde la Sem 5. Primera bajada en terreno real en Sem 4. B2B desde Sem 6: el domingo es mixto hike/run al 60 % del sábado, nunca corrida completa. Ensayo de recarga inter-etapa en los B2B. Técnica de bastones desde Sem 6 si los llevás.'},
-  3:{n:'Pico',c:'var(--b3)',l:'rgba(251,191,36,.15)',wks:'Sem 9–11',
-     desc:'La sesión pico no es un long run de récord — es una salida de 5–6 h mixta run/hike con desnivel, mochila y nutrición completa. Una etapa real son ~6–7 h con 2.500 m de desnivel; un largo plano de 36 km no se le parece. Semana de baja en el medio del bloque (Sem 10), no al final. Sem 11 incluye el ensayo de dos días consecutivos, con el primer día deliberadamente el más suave.'},
-  4:{n:'Taper',c:'var(--b4)',l:'rgba(192,132,252,.15)',wks:'Sem 12–14',
-     desc:'El volumen baja cada semana. Descenso y hike se reducen, no se eliminan — perder la adaptación excéntrica en el taper es un error clásico. Gimnasio pasa a upper progresivamente. Las piernas van a sentirse planas: es la respuesta correcta, no una señal de alarma.'},
-  5:{n:'Carrera',c:'var(--b5)',l:'rgba(248,113,113,.15)',wks:'Sem 15–16',
-     desc:'Sem 15: prep final, chequeo de equipo, logística, nada nuevo. Sem 16: viaje, llegada y las tres etapas. Etapa 1 tiene que ser la más fácil de las tres — es lo que ensayaste en Sem 11 y lo único que decide si llegás entero al jueves.'},
+  3:{n:'Pico',c:'var(--b3)',l:'rgba(251,191,36,.15)',wks:'Sem 9–12',
+     desc:'La sesión pico no es un long run de récord — es una salida de 5–6 h mixta run/hike con desnivel, mochila y nutrición completa. Las etapas reales son 32 km / 1.200 m D+, 30 km / 1.600 m D+ y 32 km / 1.600 m D+ (~4,5–6,5 h cada una): lo que las define es la pendiente — la E2 sube ~1.000 m en ~6,5 km y baja ~700 m en ~3,5 km al 19 % — y un largo plano no se le parece. Semana de baja en el medio del bloque (Sem 10), no al final. Sem 11 incluye el ensayo de dos días consecutivos, con el primer día deliberadamente el más suave. Sem 12 repite el vertical sobre piernas descansadas: ~100 min continuos en cinta al 12 % y bajadas corridas, que es lo más parecido a la subida y la bajada de la E2.'},
+  4:{n:'Taper',c:'var(--b4)',l:'rgba(192,132,252,.15)',wks:'Sem 13–15',
+     desc:'Taper de tres semanas (−35 %, −55 %, −75 % sobre el pico), con la intensidad intacta. El volumen baja cada semana. Descenso y hike se reducen, no se eliminan — perder la adaptación excéntrica en el taper es un error clásico. Gimnasio pasa a upper progresivamente. Las piernas van a sentirse planas: es la respuesta correcta, no una señal de alarma.'},
+  5:{n:'Carrera',c:'var(--b5)',l:'rgba(248,113,113,.15)',wks:'Sem 16',
+     desc:'Sem 16: viaje, llegada y las tres etapas. Etapa 1 tiene que ser la más fácil de las tres — es lo que ensayaste en Sem 11 y lo único que decide si llegás entero al jueves.'},
 };
 
 // ─── CONSTRUCTOR DE SESIONES ─────────────────
@@ -366,8 +366,8 @@ days:[
   [s('long','Long run suave','17 km · HR ≤145'),M15],
   [s('hike','Powerhike suave','60 min · sin mochila'),MSUN,P3],
 ]},
-{wk:8,ph:2,km:58,label:'Pico de bloque',date:'12–18 Oct',badge:'KEY',
-focus:'Long 26 km — el pico de distancia de todo el plan. Más allá de acá el trabajo pasa a ser por tiempo y desnivel, no por kilómetros planos, porque es lo que se parece a una etapa. B2B de 16 km el domingo. Fueling completo: gel cada 45 min, agua cada 7 km. Gimnasio 2× (lun/vie): semana de mucho running.',
+{wk:8,ph:2,km:51,label:'Pico de bloque',date:'12–18 Oct',badge:'KEY',
+focus:'Long 26 km — el pico de distancia de todo el plan. Más allá de acá el trabajo pasa a ser por tiempo y desnivel, no por kilómetros planos, porque es lo que se parece a una etapa. El domingo es CINTA ONDULANTE 90–100 min (reemplaza al B2B: mismo estímulo de piernas cansadas, mucho más desnivel específico, menos impacto). Fueling completo: gel cada 45 min, agua cada 7 km. Gimnasio 2× (lun/vie): semana de mucho running.',
 days:[
   [s('gym-leg','Full Body A · Piernas','45 min'),P],
   [s('quality','Tempo 4×8 min','HR 157–170 · 2 min jog'),P],
@@ -375,18 +375,18 @@ days:[
   [s('easy','Fácil','55 min · HR ≤150'),P],
   [s('gym-up','Full Body B · Upper (push+pull)','45 min'),P3],
   [s('long','Long run · PICO','26 km · fuel cada 45 min · agua cada 7 km'),M15],
-  [s('b2b','B2B mixto hike/run','~16 km · 60 % del sábado'),M15,P3],
+  [s('hike','Cinta ondulante','90–100 min · 3 min hike 10 % / 4 min trote 1 % · ~350 m D+ · HR ≤150'),M15,P3],
 ]},
 // ══ BLOQUE 3 · PICO ══
 {wk:9,ph:3,km:46,label:'Salida larga mixta',date:'19–25 Oct',badge:'KEY',
-focus:'🔑 Cambia la naturaleza del entrenamiento: 4–5 h mixtas run/hike con desnivel, mochila completa y toda la nutrición de carrera. El miércoles es la ÚLTIMA bajada como sesión suelta — desde acá se integra a las salidas largas, que es como aparece en carrera. No importa el kilometraje: importan las horas en pie y el desnivel acumulado.',
+focus:'🔑 Cambia la naturaleza del entrenamiento: 4–5 h mixtas run/hike con desnivel, mochila completa y toda la nutrición de carrera. El miércoles es la ÚLTIMA bajada como sesión suelta — desde acá se integra a las salidas largas, que es como aparece en carrera. No importa el kilometraje: importan las horas en pie y el desnivel acumulado (≥1.000 m el sábado, con un bloque continuo de 90 min en cinta al 12 %). Lunes: entra el step-down excéntrico + isquio izquierdo (ver Gym A).',
 days:[
   [s('gym-leg','Full Body A · Piernas','45 min'),P],
   [s('quality','Tempo 3×10 min','HR 157–170 · mantener, no acelerar'),P],
   [s('easy','Bajada 8×3 min · última suelta','WU 15 min → 8×3 min → CD · desde acá va embebida en las largas'),P3],
   [s('easy','Fácil','50 min · HR ≤150'),P],
   [s('gym-up','Full Body B · Mantenimiento','25 min · liviano, mismo peso, pocas series'),P3],
-  [s('hike','SALIDA LARGA MIXTA','4–5 h · con bloques de BAJADA corrida · mochila · nutrición completa'),M15],
+  [s('hike','SALIDA LARGA MIXTA','4–5 h · ≥1.000 m D+ · 60 min llano → 90 min cinta 12 % con mochila → 60–90 min rodante con bajadas'),M15],
   [s('bike','Giro regenerativo','40 min · HR ≤135 · cero impacto'),MSUN,P3],
 ]},
 {wk:10,ph:3,km:28,label:'Baja pre-pico',date:'26 Oct–1 Nov',badge:'DOWN',
@@ -398,58 +398,57 @@ days:[
   [s('easy','Fácil','40 min · HR ≤150'),P],
   [s('gym-up','Full Body C · Push','25 min'),P3],
   [s('long','Long run suave','16 km · HR ≤145'),M15],
-  [s('hike','Powerhike suave','60 min · sin mochila'),MSUN,P3],
+  [s('hike','Powerhike suave','60 min · cinta 8 % · sin mochila · ~400 m D+'),MSUN,P3],
 ]},
 {wk:11,ph:3,km:63,label:'Ensayo 2 días',date:'2–8 Nov',badge:'KEY',
-focus:'🔑 La semana más importante del plan. Sábado 5–6 h mixtas, y el domingo 3–4 h más — las dos CON bajada corrida incluida, porque bajar con piernas destruidas el día 2 es literalmente la Etapa 2 de El Cruce. La regla es una sola: el sábado tiene que ser el día MÁS FÁCIL. Si el domingo no podés moverte, el sábado lo corriste mal — y eso es exactamente lo que pasa en El Cruce si reventás la Etapa 1. Esto entrena la disciplina que ninguna otra sesión entrena.',
+focus:'🔑 La semana más importante del plan. Sábado 4,5–5 h mixtas (simula la Etapa 1: 1.000–1.200 m D+), y el domingo 4–4,5 h más (simula E2/E3: 1.200–1.400 m D+, con bloque continuo de 75 min en cinta al 12 % ≈ 650 m) — las dos CON bajada corrida incluida, porque bajar con piernas destruidas el día 2 es literalmente la Etapa 2 de El Cruce. La regla es una sola: el sábado tiene que ser el día MÁS FÁCIL. Si el domingo no podés moverte, el sábado lo corriste mal — y eso es exactamente lo que pasa en El Cruce si reventás la Etapa 1. Esto entrena la disciplina que ninguna otra sesión entrena.',
 days:[
   [s('gym-leg','Full Body A · Mantenimiento','30 min'),P],
   [s('quality','Tempo 3×8 min','HR 157–168 · suave, es semana pico'),P],
   [s('gym-up','Full Body B · Mantenimiento','25 min · liviano, sin fatiga residual'),P3],
   [s('easy','Fácil','40 min · HR ≤150'),P],
   [s('rest','Descanso total','el finde es la sesión del plan'),P3],
-  [s('hike','DÍA 1 · 5–6 h mixtas','vergonzosamente fácil · CON BAJADA · mochila · nutrición completa'),M15],
-  [s('b2b','DÍA 2 · 3–4 h mixtas','CON BAJADA sobre piernas cansadas · esto es El Cruce'),M15,P3],
+  [s('hike','DÍA 1 · 4,5–5 h mixtas','Etapa 1 · 1.000–1.200 m D+ · vergonzosamente fácil · CON BAJADA · mochila · nutrición completa'),M15],
+  [s('b2b','DÍA 2 · 4–4,5 h mixtas','Etapas 2/3 · 1.200–1.400 m D+ · cinta 12 % 75 min + BAJADAS sobre piernas cansadas'),M15,P3],
+]},
+{wk:12,ph:3,km:45,label:'Pico 2 · Vertical',date:'9–15 Nov',badge:'KEY',
+focus:'🔑 Segunda semana de vertical y última de carga. Tu mayor brecha contra la Etapa 2 es la subida continua (~1.000 m en ~6,5 km a 400–500 m/h) y la bajada al 19 %. El sábado simula la subida con ~100 min continuos en cinta al 12 % (~1.000 m D+) y cierra con 12–14 bajadas corridas en barranca. Va sobre piernas descansadas, así que es la sesión donde sí podés llegar a HR 150–158. Último estímulo excéntrico fuerte de la fase: step-down del martes y bajadas del sábado. Desde la Sem 13 el volumen baja y el excéntrico pasa a mantenimiento.',
+days:[
+  [s('easy','Fácil de recuperación','30–35 min · HR ≤140 · después del ensayo de 2 días'),P],
+  [s('gym-leg','Full Body A · Piernas','30 min · step-down excéntrico · solo si cuádriceps ≤3/10 e isquio ≤2/10'),P],
+  [s('quality','Tempo 2×10 min','HR 157–168 · suave, el estímulo de la semana es el sábado'),P3],
+  [s('gym-up','Full Body B · Upper','25 min · liviano'),P],
+  [s('easy','Fácil','35 min · HR ≤145 · piernas frescas para el sábado'),P3],
+  [s('hike','VERTICAL · 3,5–4 h','Etapa 2 sobre piernas descansadas · ~1.300–1.400 m D+ · cinta 12 % ~100 min CONTINUOS HR 150–158 + 12–14 bajadas corridas ≥6:30/km · mochila · nutrición completa'),M15],
+  [s('hike','Powerhike suave','60 min · cinta 8–10 % · sin mochila · ~400–450 m D+'),MSUN,P3],
 ]},
 // ══ BLOQUE 4 · TAPER ══
-{wk:12,ph:4,km:40,label:'Taper 1',date:'9–15 Nov',badge:'',
-focus:'El volumen empieza a bajar pero la intensidad y el descenso se mantienen en dosis chicas — perder la adaptación excéntrica ahora es un error clásico de taper. Long 18 km, última salida larga de verdad.',
+{wk:13,ph:4,km:38,label:'Taper 1',date:'16–22 Nov',badge:'',
+focus:'Taper 1: volumen ~35 % abajo del pico, intensidad y bajada intactas. Recortá minutos, no frecuencia. El sábado es el ensayo de equipo completo (mochila, kit, nutrición) con 45 min de cinta al 12 % y 6 bajadas. Gimnasio upper: las piernas llegan frescas.',
 days:[
-  [s('gym-leg','Full Body A · Mantenimiento','30 min'),P],
-  [s('quality','Tempo 3×6 min','HR 157–168'),P],
-  [s('easy','Bajada 4×3 min','dosis de mantenimiento'),P3],
-  [s('easy','Fácil','45 min · HR ≤150'),P],
-  [s('gym-up','Full Body B · Upper','28 min'),P3],
-  [s('long','Long run','18 km · última larga'),M15],
-  [s('hike','Powerhike + mochila','75 min · 7 %'),MSUN,P3],
-]},
-{wk:13,ph:4,km:28,label:'Taper 2',date:'16–22 Nov',badge:'',
-focus:'Volumen bajo. Las corridas van a sentirse fáciles: es la señal correcta. Gimnasio pasa a upper solamente — las piernas llegan frescas. Chequeo de equipo el sábado: mochila armada, bastones si van, todo el kit puesto durante 90 min.',
-days:[
-  [s('rest','Descanso',''),P],
-  [s('quality','4×3 min','HR ≤168 · corto y vivo'),P],
-  [s('gym-up','Upper + core','22 min'),P3],
-  [s('easy','Fácil + 4 rectas','40 min · HR ≤150'),P],
+  [s('gym-up','Upper + core','22 min · gemelo en declive liviano'),P],
+  [s('quality','Tempo 3×6 min','HR 157–168 · corto y vivo'),P],
+  [s('easy','Bajada 4×3 min + fácil','35 min en total · dosis de mantenimiento · ≥6:30/km'),P3],
+  [s('easy','Fácil + 4 rectas','45 min · HR ≤145'),P],
   [s('rest','Descanso',''),P3],
-  [s('hike','Ensayo de equipo','90 min · mochila completa · todo el kit'),M15],
+  [s('hike','Ensayo de equipo','90–120 min · mochila completa · todo el kit · cinta 12 % 45 min + 6 bajadas · ~450 m D+'),M15],
   [s('easy','Fácil','8 km · HR ≤145'),MSUN,P3],
 ]},
-{wk:14,ph:4,km:18,label:'Taper 3',date:'23–29 Nov',badge:'',
-focus:'Volumen muy bajo. Dormí 8–9 h. Las piernas van a sentirse inquietas y con resorte — perfecto. Cerrá logística: pasajes, alojamiento, inscripción, lista de equipo definitiva.',
+{wk:14,ph:4,km:26,label:'Taper 2',date:'23–29 Nov',badge:'',
+focus:'Taper 2: volumen ~55 % abajo del pico. Una sola calidad corta y viva. Último powerhike con mochila el sábado 28, a 10 días de la carrera. El excéntrico fuerte ya terminó: nada de step-down ni bajadas largas desde acá. Dormí 8–9 h.',
 days:[
+  [s('gym-up','Upper + core','20 min'),P],
+  [s('quality','4×3 min','HR ≤168 · corto y vivo'),P],
+  [s('easy','Fácil + 4 rectas','40 min · HR ≤145'),P3],
   [s('rest','Descanso',''),P],
-  [s('easy','Fácil + 4 rectas','35 min · HR ≤145'),P],
-  [s('gym-up','Upper + core','22 min'),P3],
-  [s('easy','Fácil','30 min · HR ≤145'),P],
-  [s('rest','Descanso',''),P3],
-  [s('hike','Powerhike suave','60 min · sin mochila'),M15],
-  [s('easy','Fácil','6 km · muy suave'),MSUN,P3],
+  [s('easy','Fácil','30 min · HR ≤145'),P3],
+  [s('hike','Powerhike con mochila','75 min · cinta 8 % · ~400 m D+ · última con mochila'),M15],
+  [s('easy','Fácil','5 km · muy suave'),MSUN,P3],
 ]},
-// ══ BLOQUE 5 · CARRERA ══
-{wk:15,ph:5,km:10,label:'Prep final',date:'30 Nov–6 Dec',badge:'',
-focus:'Nada nuevo: ni comida, ni zapatillas, ni rutinas. Solo activaciones cortas para no oxidarte. Carga de carbohidratos desde el viernes. El sábado 5 no entrenás — armás el bolso y descansás.',
+{wk:15,ph:4,km:12,label:'Taper 3 · Prep final',date:'30 Nov–6 Dec',badge:'',
+focus:'Taper 3 y prep final. Nada nuevo: ni comida, ni zapatillas, ni rutinas. Solo activaciones cortas para no oxidarte. Carga de carbohidratos desde el viernes. El sábado 5 no entrenás — armás el bolso y descansás.',
 days:[
-  [s('easy','Activación','25 min · HR ≤140'),P],
+  [s('easy','Fácil + 4 rectas','35 min · HR ≤145'),P],
   [s('rest','Descanso',''),P],
   [s('easy','Activación + 4 rectas','20 min'),P],
   [s('rest','Descanso',''),P],
@@ -458,12 +457,12 @@ days:[
   [s('rest','Descanso','dormir 9 h'),P],
 ]},
 {wk:16,ph:5,km:100,label:'EL CRUCE 🏔',date:'7–13 Dic',badge:'RACE',
-focus:'Lun 7: llegada, acreditación, descanso. Mar 8 Etapa 1 — la más fácil de las tres, sin excepción, fuel desde el km 5. Mié 9 Etapa 2. Jue 10 Etapa 3, meta 🏁. Las tres con tus amigos, que era el objetivo desde el principio.',
+focus:'Lun 7: llegada, acreditación, descanso. Mar 8 Etapa 1 (32 km · 1.200 m D+) — la más fácil de las tres, sin excepción, fuel desde el km 5. Mié 9 Etapa 2 (30 km · 1.600 m D+, máx. 1.879 m): subida de ~1.000 m en ~6,5 km y bajada final de ~700 m en ~3,5 km — guardá cuádriceps. Jue 10 Etapa 3 (32 km · 1.600 m D+), meta 🏁. Las tres con tus amigos, que era el objetivo desde el principio.',
 days:[
   [s('rest','Llegada y acreditación','instalarte · comer bien · dormir temprano'),P],
-  [s('race','ETAPA 1 · ~33 km','Mar 8 · la MÁS FÁCIL de las tres · fuel desde km 5'),M15],
-  [s('race','ETAPA 2 · ~35 km','Mié 9 · para esto entrenaste'),M15],
-  [s('race','ETAPA 3 · ~32 km','Jue 10 · 🏁 meta'),M15],
+  [s('race','ETAPA 1 · 32 km · 1.200 m D+','Mar 8 · la MÁS FÁCIL de las tres · fuel desde km 5'),M15],
+  [s('race','ETAPA 2 · 30 km · 1.600 m D+','Mié 9 · ~1.000 m de subida seguidos y ~700 m de bajada al 19 % al final · para esto entrenaste'),M15],
+  [s('race','ETAPA 3 · 32 km · 1.600 m D+','Jue 10 · 🏁 meta'),M15],
   [s('rest','Descanso · festejo','comé todo'),M10],
   [s('rest','Viaje de vuelta',''),M10],
   [s('rest','Descanso','dormir es la prioridad'),M10],
@@ -499,16 +498,16 @@ const DESC = [
   {f:'Fase 2 · Terreno',w:'Sem 4–8',c:'var(--b2)',d:'Rampa de estacionamiento, puente o Barrancas de Olivos. 40–80 m de bajada continua, 5–10 % de pendiente, piso parejo. Subís caminando, bajás corriendo.',
    ex:['Sem 4 · 4×2 min bajada suave — primera exposición','Sem 5 · 6×2 min controlada','Sem 6 · 6×3 min moderada','Sem 8 · 8×3 min','Pasos cortos, cadencia alta, no frenar con los talones']},
   {f:'Fase 3 · Integrado',w:'Sem 9–11',c:'var(--b3)',d:'La bajada deja de ser sesión suelta y pasa a estar embebida en las salidas largas — que es como aparece en carrera. La última suelta es el miércoles de Sem 9.',
-   ex:['Sem 9 · bloques de bajada dentro de la salida de 4–5 h','Sem 10 · baja, sin bajada — el tejido absorbe','Sem 11 · bajada en LOS DOS días del ensayo','Siempre con mochila cargada y sobre piernas ya cansadas','El día 2 con bajada es la simulación más fiel de la Etapa 2']},
-  {f:'Fase 4 · Mantenimiento',w:'Sem 12–14',c:'var(--b4)',d:'La bajada se REDUCE, no se elimina. Cortar el excéntrico en el taper y llegar con los cuádriceps desadaptados es el error clásico — perdés en tres semanas lo que construiste en ocho.',
-   ex:['Sem 12 · 4×3 min de mantenimiento','Sem 13–14 · solo el gemelo en declive del gimnasio','Nada de bajada larga ni con mochila pesada','Suficiente para no perder la adaptación, poco para no acumular fatiga']},
+   ex:['Sem 9 · bloques de bajada dentro de la salida de 4–5 h','Sem 10 · baja, sin bajada — el tejido absorbe','Sem 11 · bajada en LOS DOS días del ensayo','Siempre con mochila cargada y sobre piernas ya cansadas','Los ~700 m al 19 % de la E2 no se replican con Perú (17 m/rep): ese estímulo lo cubre el step-down excéntrico del gimnasio (Gym A, lunes)','El día 2 con bajada es la simulación más fiel de la Etapa 2']},
+  {f:'Fase 4 · Mantenimiento',w:'Sem 13–15',c:'var(--b4)',d:'La bajada se REDUCE, no se elimina. Cortar el excéntrico en el taper y llegar con los cuádriceps desadaptados es el error clásico — perdés en tres semanas lo que construiste en ocho.',
+   ex:['Sem 13 · 4×3 min de mantenimiento','Sem 14–15 · solo el gemelo en declive del gimnasio','Nada de bajada larga ni con mochila pesada','Suficiente para no perder la adaptación, poco para no acumular fatiga']},
 ];
 
 // ─── GIMNASIO ────────────────────────────────
 function ex(n,note,sets,rpe){return{n,note,sets,rpe};}
 const SC = {
   1:{label:'Bloque 1 · Consolidación',
-     sub:'Tres full body, cuatro bloques cada una, 45 min reales. Los unilaterales cuentan doble (4×8 c/lado son 8 series, no 4) — por eso hay menos ejercicios de los que parecería. Lo que NO se toca: el excéntrico ⚑ aparece en las tres sesiones. Más frecuencia de exposición excéntrica adapta mejor el tendón que una sola sesión pesada, y es lo que te sostiene los cuádriceps en 2.500 m de bajada por etapa.',
+     sub:'Tres full body, cuatro bloques cada una, 45 min reales. Los unilaterales cuentan doble (4×8 c/lado son 8 series, no 4) — por eso hay menos ejercicios de los que parecería. Lo que NO se toca: el excéntrico ⚑ aparece en las tres sesiones. Más frecuencia de exposición excéntrica adapta mejor el tendón que una sola sesión pesada, y es lo que te sostiene los cuádriceps en 1.050 / 1.600 / 1.500 m de bajada por etapa (E1/E2/E3).',
      prog:'Descanso: 2 min en los compuestos pesados (bloques 1 y 2), 60–75 s dentro de las superseries. Progresás sumando 1 rep por serie; el excéntrico progresa alargando la bajada (4 s → 5 s), nunca subiendo peso. Si llegás corto de tiempo hacé los bloques 1 y 2 y te vas — nunca saltees el ⚑.',
      gymA:{n:'Full Body A · Énfasis piernas',day:'Lunes',dur:'45 min · 4 bloques',exs:[
        ex('1 · Sentadilla búlgara','⚑ EXCÉNTRICO · bajada de 4 s. El ancla de la sesión. Descanso 2 min.','3×8 c/lado','RPE 7'),
@@ -526,7 +525,7 @@ const SC = {
        ex('1 · Press banca con mancuernas','Pesado hoy. Rango completo, codos a 45°. Descanso 2 min.','4×8','RPE 8'),
        ex('2 · Press militar','Hombro y estabilidad de tronco. Descanso 2 min.','3×10','RPE 7'),
        ex('3 · SUPERSERIE · Sentadilla goblet + Jalón al pecho','Pierna moderada — el long es mañana. 60 s entre vueltas.','3×10 / 3×10','RPE 6'),
-       ex('4 · SUPERSERIE · Step-down + Copenhagen','⚑ EXCÉNTRICO · step-down con bajada de 4 s, cajón a la rodilla. 75 s entre vueltas.','3×8 c/lado / 3×25 s','RPE 7'),
+       ex('4 · SUPERSERIE · Step-down + Puente isquio unilateral','⚑ EXCÉNTRICO · step-down con bajada de 4 s. Puente: izquierda +1 serie. 75 s entre vueltas.','3×8 c/lado / 3×8 (izq 4)','RPE 7'),
      ]},
   },
   2:{label:'Bloque 2 · Construcción',
@@ -535,14 +534,14 @@ const SC = {
      gymA:{n:'Full Body A · Énfasis piernas',day:'Lunes',dur:'45 min · 4 bloques',exs:[
        ex('1 · Sentadilla búlgara','⚑ EXCÉNTRICO · pesada, 6 reps, bajada de 4 s. Descanso 2 min.','4×6 c/lado','RPE 8'),
        ex('2 · Peso muerto trap bar','Explosivo. Descanso 2 min.','3×5','RPE 8'),
-       ex('3 · SUPERSERIE · Press banca DB + Remo','Mantenimiento de patrones. 60 s entre vueltas.','3×10 / 3×10 c/lado','RPE 7'),
-       ex('4 · SUPERSERIE · Gemelo en declive + Nordic curl','⚑ EXCÉNTRICO · el nordic es el ejercicio prioritario del bloque. 75 s.','4×8 / 3×5','RPE 8–9'),
+       ex('3 · SUPERSERIE · Step-down excéntrico + Puente isquio unilateral','⚑ EXCÉNTRICO · escalón 4 s de bajada, escalón 4º de la escalera Physiomed. Es la respuesta a la bajada de ~700 m al 19 % de la E2. Puente: izquierda primero y +1 serie. 75 s.','3×8 c/lado / 3×8 (izq 4)','RPE 7'),
+       ex('4 · SUPERSERIE · Gemelo en declive + Nordic con banda','⚑ EXCÉNTRICO · nordic con banda, lo más lento posible; prioridad del bloque (H:Q 0,44 D / 0,38 I). 75 s.','4×8 / 3×5','RPE 8'),
      ]},
      gymB:{n:'Full Body B · Énfasis pull',day:'Miércoles · con el descenso',dur:'40 min · 4 bloques',exs:[
        ex('1 · Dominadas lastradas','El día del descenso, el gimnasio es de tracción. Descanso 2 min.','4×6','RPE 8'),
        ex('2 · Remo pesado','Descanso 2 min.','4×8 c/lado','RPE 8'),
        ex('3 · SUPERSERIE · Face pull + Flexiones','60 s entre vueltas.','3×15 / 3×12','RPE 6'),
-       ex('4 · SUPERSERIE · Farmer\'s carry + Copenhagen','Agarre para bastones. Nada de excéntrico de pierna hoy: ya bajaste en terreno.','3×25 m / 3×30 s','RPE 8'),
+       ex('4 · SUPERSERIE · Farmer\'s carry + Puente isquio unilateral','Agarre para bastones. Isquio izq. +1 serie (Physiomed: 14 % menos). Nada de excéntrico de cuádriceps hoy: ya bajaste en terreno.','3×25 m / 3×8 (izq 4)','RPE 7'),
      ]},
      gymC:{n:'Full Body C · Énfasis push',day:'Viernes',dur:'42 min · 4 bloques',exs:[
        ex('1 · Press banca con mancuernas','Pesado. Descanso 2 min.','4×6','RPE 8'),
@@ -557,7 +556,7 @@ const SC = {
      gymA:{n:'Full Body A · Mantenimiento',day:'Lunes',dur:'30 min · 3 bloques',exs:[
        ex('1 · Sentadilla búlgara','⚑ EXCÉNTRICO · moderada, sin buscar fallo.','3×8 c/lado','RPE 6'),
        ex('2 · SUPERSERIE · Press banca DB + Remo','Mantenimiento de patrones.','2×10 / 2×10 c/lado','RPE 6'),
-       ex('3 · SUPERSERIE · Step-down + Gemelo en declive','⚑ EXCÉNTRICO · mantener el patrón, no fatigar.','2×8 c/lado / 3×10','RPE 6'),
+       ex('3 · SUPERSERIE · Step-down excéntrico + Puente isquio unilateral','⚑ EXCÉNTRICO · 4 s de bajada. Izquierda primero y +1 serie. Mantener el patrón, no fatigar.','3×8 c/lado / 3×8 (izq 4)','RPE 6'),
      ]},
      gymB:null,
      gymC:{n:'Full Body B · Upper dominante',day:'Viernes',dur:'28 min · 3 bloques',exs:[
@@ -628,7 +627,7 @@ const RW = {
          {l:'Progresión',d:'Sem 4 · 4×2 min suave → Sem 5 · 6×2 min → Sem 6 · 6×3 min → Sem 8 · 8×3 min'},
          {l:'Técnica',d:'Pasos cortos, cadencia alta, mirada 4–5 m adelante. NO frenes con los talones — es lo que destruye cuádriceps.'},
          {l:'Recuperación',d:'Subís caminando. La subida no es parte de la sesión.'},
-         {l:'Por qué',d:'~2.500 m de descenso por etapa. La destrucción de cuádriceps en bajada es la causa #1 de abandono en montaña, y es lo único que no se entrena en llano.'},
+         {l:'Por qué',d:'Descenso estimado ~1.050 / 1.600 / 1.500 m por etapa; la E2 termina con ~700 m en ~3,5 km al 19 %. La destrucción de cuádriceps en bajada es la causa #1 de abandono en montaña, y es lo único que no se entrena en llano.'},
          {l:'Cuidado',d:'Es la sesión de mayor riesgo del plan para tu tobillo. Piso parejo, sin excepciones, y cortás al primer aviso.'},
        ]},
        {n:'B2B mixto hike/run',day:'Dom · Sem 6+',type:'b2b',rows:[
@@ -649,23 +648,32 @@ const RW = {
      sessions:[
        {n:'Salida larga mixta',day:'Sáb · Sem 9',type:'hike',rows:[
          {l:'Duración',d:'4–5 h. El tiempo en pie es la métrica, no la distancia.'},
-         {l:'Formato',d:'Alternás run y power-hike según el terreno: subís caminando fuerte, bajás y llaneás trotando.'},
+         {l:'Formato',d:'~60 min llano/rodante → 90 min CONTINUOS en cinta al 12 % (~4,5–5 km/h, ~800 m) con mochila → 60–90 min rodante con bloques de bajada. Total ≥1.000 m D+.'},
+         {l:'Cinta',d:'Sin declive: la bajada se corre afuera. Si la cinta no está disponible, repetí Perú/Alvear subiendo caminando fuerte (≈17 m por rep).'},
          {l:'Mochila',d:'Completa, con el peso real de carrera.'},
          {l:'Nutrición',d:'Protocolo completo de carrera: gel cada 45 min desde el km 5, agua cada 7 km. Probá TODO lo que vas a usar en Bariloche.'},
          {l:'Objetivo',d:'Que no haya sorpresas en diciembre. Equipo, comida, roces, ampollas — todo se descubre acá o se descubre en carrera.'},
        ]},
        {n:'Ensayo de 2 días',day:'Sáb+Dom · Sem 11',type:'race',rows:[
-         {l:'Día 1 (Sáb)',d:'5–6 h mixtas. VERGONZOSAMENTE FÁCIL. Si terminás sintiendo que podías mucho más, lo hiciste bien.'},
-         {l:'Día 2 (Dom)',d:'3–4 h mixtas sobre piernas cansadas. Esto es lo que se parece a la Etapa 2.'},
+         {l:'Día 1 (Sáb)',d:'4,5–5 h mixtas, 1.000–1.200 m D+ (Etapa 1: corrible, una subida de ~450 m). VERGONZOSAMENTE FÁCIL. Si terminás sintiendo que podías mucho más, lo hiciste bien.'},
+         {l:'Día 2 (Dom)',d:'4–4,5 h mixtas, 1.200–1.400 m D+: bloque continuo 75 min en cinta al 12 % (~650 m) y después bajadas corridas sobre piernas cansadas. Es la Etapa 2.'},
          {l:'La regla',d:'El sábado tiene que ser el día MÁS FÁCIL del fin de semana. Es contraintuitivo y es todo el punto del ejercicio.'},
          {l:'Qué mide',d:'Si el domingo no podés moverte, el sábado lo corriste mal. En El Cruce eso significa arruinar las Etapas 2 y 3 el martes a la mañana.'},
          {l:'Nutrición',d:'Recarga completa entre los dos días: 550–670 g de carbos en la ventana de ~18 h.'},
+       ]},
+       {n:'Vertical sobre piernas descansadas',day:'Sáb · Sem 12',type:'hike',rows:[
+         {l:'Formato',d:'20 min de trote suave → ~100 min CONTINUOS en cinta al 12 % (4,5–5 km/h, ~1.000 m D+; si hace falta, 2×50 min con 5 min de pausa) con mochila → 12–14 bajadas corridas en barranca (≥6:30/km, cadencia ≥88; ~250 m D+ extra).'},
+         {l:'Intensidad',d:'Cinta HR 150–158 (tope 160). Es la única sesión del plan donde la subida va a ritmo de Etapa 2, ~500 m/h. Las bajadas, controladas.'},
+         {l:'Total',d:'~1.300–1.400 m D+ en 3,5–4 h. Los dos días del ensayo de la Sem 11 sumaron ~2.300 m; esta es la subida continua y la bajada, sin fatiga previa.'},
+         {l:'Cortes',d:'HR >160 sostenido, cuádriceps ≥5/10 o peroneo/gemelo/Aquiles ≥3/10: se corta el bloque y se baja caminando.'},
+         {l:'Sin cinta',d:'Barranca con bajadas caminando, ~600 m D+. No se compensa: el volumen no sube en el taper.'},
+         {l:'Nutrición',d:'60 g/h de carbohidratos, 500 ml/h con sodio y pesaje antes y después, como en la Sem 11.'},
        ]},
      ]},
   4:{label:'Bloque 4 · Taper',
      sub:'Volumen bajando, calidad e intensidad de descenso mantenidas en dosis mínimas. El error clásico del taper es cortar el excéntrico y llegar con los cuádriceps desadaptados.',
      sessions:[
-       {n:'Tempo 3×6 min',day:'Mar · Sem 12',type:'quality',rows:[
+       {n:'Tempo 3×6 min',day:'Mar · Sem 13',type:'quality',rows:[
          {l:'Serie',d:'3×6 min a HR 157–168 · 2 min de trote'},
          {l:'Objetivo',d:'Recordarle a las piernas que son rápidas. No generar fatiga.'},
        ]},
@@ -752,7 +760,7 @@ setInterval(updateCountdown, 1000);
 // ─── HITOS ───────────────────────────────────
 const MILESTONES = {
   3: {color:'var(--b1)', title:'Check-in · Sem 3', body:'Long de 17 km el sábado. Pasale a tu coach: distancia, HR media, cadencia y —lo más importante— la rigidez matinal del domingo. De eso depende que el descenso en terreno arranque en Sem 4 o se postergue.'},
-  8: {color:'var(--b2)', title:'Check-in · Sem 8', body:'Pico de distancia (26 km) + B2B. Pasale: cómo se sintió el domingo sobre piernas cansadas, si la recarga de carbos funcionó, y cualquier señal del tendón. Define la estructura del bloque de pico.'},
+  8: {color:'var(--b2)', title:'Check-in · Sem 8', body:'Pico de distancia (26 km) + cinta ondulante. Pasale: cómo se sintió el domingo sobre piernas cansadas, si la recarga de carbos funcionó, y cualquier señal del tendón. Define la estructura del bloque de pico.'},
   11:{color:'var(--b3)', title:'Check-in · Sem 11', body:'Ensayo de dos días. Pasale: horas totales de cada día, desnivel, si el sábado fue realmente el día más fácil, y cómo estuviste el domingo a la mañana. Es el mejor predictor de El Cruce que vas a tener.'},
   16:{color:'var(--b5)', title:'Check-in · Post-carrera', body:'El Cruce terminado. Pasale: cómo se sintió cada etapa, ejecución de nutrición e hidratación, señales de lesión, y qué te sorprendió. De ahí sale el plan 2027.'},
 };
@@ -813,7 +821,7 @@ function renderToday(){
         🦶 <strong>Rigidez matinal — la métrica que manda.</strong> Chequealo antes de levantarte de la cama, todos los días. Igual o menor que ayer → la dosis fue correcta, seguís. Peor que ayer → la sesión de ayer se pasó, bajás un escalón. Lo que sentís DURANTE la sesión no decide nada: el tendón responde con 24 h de retraso.
       </div>
       <div class="note">
-        💧 <strong>Natación · pausada hasta post-Cruce.</strong> Foco total en running + gimnasio hasta diciembre. <strong>Gimnasio inverso al running:</strong> 3× en semanas de poco running (7 y 10), 2× en semanas de mucho running (8, 9, 11). En el taper (12–16) el gimnasio baja junto con el running — no se invierte. Un día = una sesión.</div>
+        💧 <strong>Natación · pausada hasta post-Cruce.</strong> Foco total en running + gimnasio hasta diciembre. <strong>Gimnasio inverso al running:</strong> 3× en semanas de poco running (7 y 10), 2× en semanas de mucho running (8, 9, 11, 12). En el taper (13–16) el gimnasio baja junto con el running — no se invierte. Un día = una sesión.</div>
       <div class="note" style="border-left-color:var(--bike);color:var(--bike);background:rgba(129,140,248,.06)">
         🚲 <strong>Bici en casa · dosis.</strong> Z2 en bici = <strong>HR 130–145</strong> (5–10 bpm bajo la zona corriendo). <strong>90 min</strong> = respaldo del domingo cuando el hike no va a pasar. <strong>2–3 h</strong> = bloque aeróbico real, válido cuando es la sesión principal del día. <strong>4–5 h</strong> = estímulo grande y legítimo, pero máximo 1 vez cada 3–4 semanas y solo si no compromete las 48 h siguientes. Arriba de 2 h necesitás combustible de verdad: 60–90 g de carbos por hora, o el estímulo se convierte en agujero.
       </div>
@@ -930,7 +938,7 @@ function renderWorkouts(){
 
   const descSection=`
     <div class="section-hdr" style="color:var(--b2)">Descenso · progresión</div>
-    <div class="section-sub">~2.500 m de bajada por etapa. La destrucción de cuádriceps en descenso es la causa #1 de abandono en carreras de montaña, y es lo único que no se entrena corriendo en llano. La cinta del gimnasio no tiene declive, así que la Fase 2 necesita terreno real sí o sí.</div>
+    <div class="section-sub">~1.050 / 1.600 / 1.500 m de bajada por etapa (E2: ~700 m finales al 19 %). La destrucción de cuádriceps en descenso es la causa #1 de abandono en carreras de montaña, y es lo único que no se entrena corriendo en llano. La cinta del gimnasio no tiene declive, así que la Fase 2 necesita terreno real sí o sí.</div>
     <div class="workout-cards">${descHTML}</div>`;
 
   const mobSection=`
